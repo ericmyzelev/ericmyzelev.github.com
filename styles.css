@@ -9,6 +9,15 @@
   --border: #edd6d8;
   --shadow: 0 18px 50px rgba(17, 12, 12, 0.12);
   --radius: 16px;
+  --bg: #fdfdfd;
+  --text: #111418;
+  --muted: #4b5563;
+  --accent: #1d4ed8;
+  --accent-soft: #e0e7ff;
+  --border: #e5e7eb;
+  --card: #ffffff;
+  --shadow: 0 10px 30px rgba(17, 20, 24, 0.08);
+  --radius: 14px;
   font-size: 16px;
 }
 
@@ -24,6 +33,9 @@ body {
     var(--bg);
   color: var(--text);
   line-height: 1.65;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
   scroll-behavior: smooth;
 }
 
@@ -44,6 +56,8 @@ a:focus-visible {
   z-index: 999;
   backdrop-filter: blur(12px);
   background: rgba(248, 245, 244, 0.92);
+  backdrop-filter: blur(10px);
+  background: rgba(253, 253, 253, 0.92);
   border-bottom: 1px solid var(--border);
 }
 
@@ -51,6 +65,9 @@ a:focus-visible {
   max-width: 1180px;
   margin: 0 auto;
   padding: 0.85rem 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.75rem 1.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -63,6 +80,9 @@ a:focus-visible {
   color: var(--text);
   text-transform: uppercase;
   font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text);
 }
 
 .nav-links {
@@ -78,6 +98,13 @@ a:focus-visible {
   border-radius: 999px;
   color: var(--muted);
   transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+  gap: 1rem;
+}
+
+.nav-links a {
+  padding: 0.35rem 0.6rem;
+  border-radius: 8px;
+  color: var(--muted);
 }
 
 .nav-links a:focus-visible {
@@ -97,6 +124,14 @@ a:focus-visible {
 
 .content {
   max-width: 1180px;
+}
+
+.section {
+  padding: 4.5rem 1.25rem;
+}
+
+.content {
+  max-width: 1100px;
   margin: 0 auto;
 }
 
@@ -169,6 +204,7 @@ a:focus-visible {
   border: 2px dashed rgba(230, 57, 70, 0.25);
   background: transparent;
   box-shadow: none;
+  padding-top: 5.5rem;
 }
 
 .eyebrow {
@@ -177,6 +213,10 @@ a:focus-visible {
   color: var(--accent-strong);
   font-weight: 700;
   margin: 0;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
   font-size: 0.9rem;
 }
 
@@ -202,6 +242,12 @@ h1 {
 
 .subtitle {
   margin: 0;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  margin: 0.2rem 0;
+}
+
+.subtitle {
+  margin: 0.3rem 0 1.2rem 0;
   color: var(--muted);
   font-size: 1.05rem;
 }
@@ -210,6 +256,9 @@ h1 {
   max-width: 860px;
   font-size: 1.06rem;
   margin: 0;
+  max-width: 820px;
+  font-size: 1.05rem;
+  margin: 0 0 1.8rem 0;
   color: var(--text);
 }
 
@@ -217,34 +266,34 @@ h1 {
   display: flex;
   gap: 0.8rem;
   flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.4rem;
-  padding: 0.78rem 1.3rem;
+  padding: 0.75rem 1.2rem;
   border-radius: 12px;
   border: 1px solid transparent;
-  font-weight: 700;
-  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, color 180ms ease, border-color 180ms ease;
+  font-weight: 600;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, color 180ms ease;
 }
 
 .button.primary {
-  background: linear-gradient(120deg, var(--accent), var(--accent-strong));
+  background: var(--accent);
   color: #fff;
-  box-shadow: 0 18px 40px rgba(230, 57, 70, 0.35);
+  box-shadow: var(--shadow);
 }
 
 .button.primary:hover,
 .button.primary:focus-visible {
-  transform: translateY(-2px);
-  box-shadow: 0 24px 50px rgba(230, 57, 70, 0.42);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 40px rgba(29, 78, 216, 0.3);
 }
 
 .button.secondary {
-  background: var(--surface);
+  background: var(--card);
   color: var(--text);
   border-color: var(--border);
 }
@@ -256,55 +305,29 @@ h1 {
 }
 
 h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1.6rem;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-h2::after {
-  content: '';
-  flex: 1;
-  height: 2px;
-  background: linear-gradient(90deg, rgba(230, 57, 70, 0.7), transparent);
-}
-
-.section-note {
-  max-width: 760px;
-  margin: -0.6rem 0 1.5rem;
-  color: var(--muted);
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
 }
 
 .card {
-  background: var(--surface);
+  background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 1.3rem;
+  padding: 1.25rem;
   box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 0.85rem;
-  position: relative;
-  overflow: hidden;
+  gap: 0.75rem;
   opacity: 0;
   transform: translateY(18px);
-  transition: opacity 420ms ease, transform 420ms ease, border-color 180ms ease, box-shadow 180ms ease;
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 20% 20%, rgba(230, 57, 70, 0.07), transparent 50%);
-  pointer-events: none;
+  transition: opacity 400ms ease, transform 400ms ease;
 }
 
 .card.visible {
@@ -312,14 +335,9 @@ h2::after {
   transform: translateY(0);
 }
 
-.card:hover {
-  border-color: rgba(230, 57, 70, 0.4);
-  box-shadow: 0 22px 50px rgba(17, 12, 12, 0.14);
-}
-
 .card h3 {
-  margin: 0 0 0.4rem 0;
-  font-size: 1.12rem;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
 }
 
 .card p {
@@ -331,24 +349,23 @@ h2::after {
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
 }
 
 .tag {
-  padding: 0.35rem 0.7rem;
+  padding: 0.3rem 0.6rem;
   background: var(--accent-soft);
-  color: var(--accent-strong);
+  color: var(--accent);
   border-radius: 999px;
   font-size: 0.85rem;
-  font-weight: 700;
-  border: 1px solid rgba(230, 57, 70, 0.18);
+  font-weight: 600;
 }
 
 .card-footer {
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .timeline {
@@ -361,14 +378,14 @@ h2::after {
 }
 
 .timeline-item {
-  padding: 1.1rem 1.3rem;
+  padding: 1rem 1.25rem;
   border-radius: var(--radius);
   border: 1px solid var(--border);
-  background: var(--surface);
+  background: var(--card);
   box-shadow: var(--shadow);
   opacity: 0;
   transform: translateY(18px);
-  transition: opacity 420ms ease, transform 420ms ease, border-color 180ms ease;
+  transition: opacity 400ms ease, transform 400ms ease;
 }
 
 .timeline-item.visible {
@@ -376,60 +393,50 @@ h2::after {
   transform: translateY(0);
 }
 
-.timeline-item:hover {
-  border-color: rgba(230, 57, 70, 0.4);
-}
-
 .item-title {
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .item-meta {
   color: var(--muted);
-  margin-top: 0.35rem;
+  margin-top: 0.3rem;
 }
 
 .contact {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.8rem;
+  gap: 1.5rem;
 }
 
 .contact-email a {
-  font-size: 1.25rem;
-  font-weight: 800;
+  font-size: 1.2rem;
+  font-weight: 700;
   color: var(--text);
 }
 
 .contact-links {
   display: flex;
   gap: 1rem;
-  margin-top: 0.6rem;
+  margin-top: 0.5rem;
 }
 
 .contact-form {
   display: grid;
-  gap: 0.7rem;
-  padding: 1.35rem;
-  background: var(--surface);
+  gap: 0.5rem;
+  padding: 1.25rem;
+  background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-}
-
-.contact-form label {
-  font-weight: 700;
-  color: var(--text);
 }
 
 .contact-form input,
 .contact-form textarea {
   width: 100%;
   padding: 0.65rem 0.75rem;
-  border-radius: 12px;
+  border-radius: 10px;
   border: 1px solid var(--border);
   font: inherit;
-  background: #fff;
 }
 
 .contact-form input:focus-visible,
@@ -439,46 +446,20 @@ h2::after {
 }
 
 .footer {
-  padding: 2.2rem 1.5rem;
+  padding: 2rem 1.25rem;
   text-align: center;
   color: var(--muted);
   border-top: 1px solid var(--border);
-  background: rgba(248, 245, 244, 0.9);
+  background: rgba(253, 253, 253, 0.95);
 }
 
 @media (min-width: 768px) {
   .hero {
-    padding-top: 6.8rem;
-  }
-
-  .hero-shell {
-    grid-template-columns: 1.1fr 0.9fr;
-  }
-
-  .hero-visual {
-    min-height: 100%;
+    padding-top: 6.5rem;
   }
 
   .contact {
     grid-template-columns: 1fr 1fr;
     align-items: start;
-  }
-}
-
-@media (max-width: 600px) {
-  h1 {
-    font-size: clamp(2.2rem, 8vw, 3rem);
-  }
-
-  h2 {
-    font-size: 1.55rem;
-  }
-
-  .nav-links {
-    gap: 0.2rem;
-  }
-
-  .nav-links a {
-    padding: 0.45rem 0.7rem;
   }
 }
